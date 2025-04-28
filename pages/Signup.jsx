@@ -15,7 +15,7 @@ const Signup = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post('http://localhost:5000/api/users', formData);
+            const res = await axios.post('https://abinash-sasikumar-poject-js-1.onrender.com/api/users', formData);
             localStorage.setItem('user', JSON.stringify({ name: formData.name, email: formData.email }));
             navigate('/');
             setMessage('Signup successful!');

@@ -15,7 +15,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post('http://localhost:5000/api/users/login', formData);
+            const res = await axios.post('https://abinash-sasikumar-poject-js-1.onrender.com/api/users/login', formData);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify({ name:res.data.name }));
             setMessage('Login successful!');
