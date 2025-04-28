@@ -13,16 +13,18 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
             const res = await axios.post('https://abinash-sasikumar-poject-js-1.onrender.com/api/users', formData);
+            localStorage.setItem('token', res.data.token);  // Save the token to localStorage
             localStorage.setItem('user', JSON.stringify({ name: formData.name, email: formData.email }));
-            navigate('/');
             setMessage('Signup successful!');
+            navigate('/login');
         } catch (error) {
             setMessage(error.response?.data?.message || 'Signup failed.');
         }
     };
+    
 
     return (
         <section className="p-8 text-center">
